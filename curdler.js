@@ -35,8 +35,7 @@ function isNoun(word, callback)
 function getRandomLine(call){
   var lines = fs.readFileSync('cheeses').toString().split("\n");
   var line = lines[Math.floor(Math.random()*lines.length)];
-  console.log(line);
-  call(line);
+  call(line.trim());
 }
 
 function curdle(s)
