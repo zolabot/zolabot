@@ -1,0 +1,14 @@
+{
+  "name": "zolabot",
+  "version": "0.0.1",
+  "description": "I love Gorgonzola",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mastodon-api": "^1.3.0"
+  }
+}
