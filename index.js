@@ -1,6 +1,7 @@
 var curd = require('./curdler.js');
 var Mastodon = require('mastodon-api');
 var striptags = require('striptags');
+var http = require('http');
 
 const M = new Mastodon({
   access_token: process.env.MACCESS_TOKEN,
@@ -33,6 +34,13 @@ const postCheese = callback => {
     });
   });
 }
+
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('cheese');
+  res.end();
+}).listen(60);
 
 
 const doSomething = async () => {
