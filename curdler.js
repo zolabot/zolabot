@@ -20,22 +20,23 @@ function isNoun(word, callback)
       return x.lexicalEntries[0].lexicalCategory == 'Noun';
     });
     if (noun) {
-      getRandomLine(callback);
+      getRandomLine(word, callback);
     }
     else {
-      callback(word);
+      callback(['', '']);
     }
   },
   function(error) {
-    callback(word);
-    return false;
+    callback(['', '']);
+    console.error(error);
   });
+
 }
 
-function getRandomLine(call){
+function getRandomLine(word, call){
   var lines = fs.readFileSync('cheeses').toString().split("\n");
   var line = lines[Math.floor(Math.random()*lines.length)];
-  call(line.trim());
+  call([word, line.trim()]);
 }
 
 function curdle(s)
