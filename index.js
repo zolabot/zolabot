@@ -16,7 +16,7 @@ const sleep = (milliseconds) => {
 }
 
 const postCheese = callback => {
-  M.get('timelines/public', {local: true}).then(resp => {
+  M.get('timelines/public', {local: process.env.LOCAL}).then(resp => {
 
     var sent = striptags(resp.data[0].content);
     curd(sent).then((x) => {
