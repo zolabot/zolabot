@@ -21,15 +21,13 @@ const postCheese = callback => {
     var sent = striptags(resp.data[0].content);
     curd(sent).then((x) => {
       
-      if (x.length > 0)
-      {
-        var result = sent;
-        x.forEach((x) => {
-          result = result.replace(x[0], x[1]);
-        });
+      var result = sent;
+      x.forEach((x) => {
+        result = result.replace(x[0], x[1]);
+      });
 
+      if (result != sent)
         M.post('statuses', {status: result, in_reply_to_id: resp.data[0].id}, (e, d, r) => console.log(result));
-      }
       callback();
     });
   });
