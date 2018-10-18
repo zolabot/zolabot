@@ -40,7 +40,7 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('cheese');
   res.end();
-}).listen(60);
+}).listen(process.env.PORT || 8080);
 
 
 const doSomething = async () => {
